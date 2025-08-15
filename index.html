@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushpendra Menaria | Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #121212;
+            --primary-color: #1E1E1E;
+            --secondary-color: #2a2a2a;
+            --accent-color: #7B68EE; /* A nice purple */
+            --text-color: #E0E0E0;
+            --heading-color: #FFFFFF;
+            --header-bg-color: rgba(30, 30, 30, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Reusable Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: var(--header-bg-color);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--secondary-color);
+            transition: background 0.5s ease, border-bottom 0.5s ease;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            text-decoration: none;
+            transition: color 0.5s ease;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #theme-toggle-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        #theme-toggle-btn:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .social-links a {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+            margin: 0 0.5rem;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+        
+        .resume-btn {
+            background-color: var(--accent-color);
+            color: var(--heading-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .resume-btn:hover {
+            background-color: #6a5acd;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        #hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap-reverse;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+            transition: color 0.5s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            height: 60px; /* Increased height to accommodate longer subtitle */
+            transition: color 0.5s ease;
+        }
+        
+        .hero-text .greeting {
+            font-size: 1.5rem; /* Updated font size for a professional look */
+            font-weight: 500;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 25px rgba(123, 104, 238, 0.4);
+            transition: transform 0.3s ease, border 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 80px 0;
+            transition: background-color 0.5s ease;
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--heading-color);
+            transition: color 0.5s ease;
+        }
+        
+        /* About Section */
+        #about p {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: color 0.5s ease;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-card {
+            background: var(--primary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .skill-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+            transition: color 0.5s ease;
+        }
+        .skill-card span {
+            display: inline-block;
+            background: var(--secondary-color);
+            padding: 5px 12px;
+            margin: 5px 5px 5px 0;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.5s ease;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--primary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .project-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            transition: color 0.5s ease;
+        }
+        .project-card p {
+            margin-bottom: 1rem;
+            transition: color 0.5s ease;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            transition: background 0.5s ease;
+        }
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.5s ease;
+        }
+        
+        /* Animation on Scroll */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .header-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">PM</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/pushpendramenaria/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Pushpendra518" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/menaria_unity/" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                </div>
+                <a href="PushpendraMenaria_InternshalaResume (3).pdf" class="resume-btn" download> Resume </a>
+                <button id="theme-toggle-btn" aria-label="Toggle dark and light mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <span class="greeting">Hello, my name is</span>
+                    <h1>Pushpendra Menaria</h1>
+                    <p id="subtitle"></p>
+                </div>
+                <div class="hero-image">
+                    <img src="Pi7_Tool_pic1.jpg" alt="Pushpendra Menaria">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="hidden">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Hello! I'm Pushpendra, a final-year Computer Science student with a strong passion for data science and analytics. My goal is to leverage technology to solve real-world problems by uncovering hidden patterns in data. I have a strong foundation in Object-Oriented Programming, data visualization, and database management. I enjoy diving into large datasets, cleaning them, and building interactive dashboards that tell a compelling story.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="hidden">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-grid">
+                    
+                    <div class="skill-card">
+                        <h3>Programming & Databases</h3>
+                        <div class="skill-tags">
+                            <span>Python</span> 
+                            <span>C</span>
+                            <span>C++</span>
+                            <span>Java</span>
+                            <span>MySQL</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Core Technical Concepts</h3>
+                        <div class="skill-tags">
+                            <span>Computer Networks</span>
+                            <span>Software Engineering</span>
+                            <span>OOP</span>
+                            <span>Data Structures</span>
+                            <span>DBMS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Data Analysis & Libraries</h3>
+                        <div class="skill-tags">
+                            <span>Data Analysis</span>
+                            <span>Data Cleaning</span>
+                            <span>Pandas</span>
+                            <span>NumPy</span>
+                            <span>Scikit-learn</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Data Visualization Tools</h3>
+                        <div class="skill-tags">
+                            <span>Power BI</span>
+                            <span>Matplotlib</span>
+                            <span>Seaborn</span>
+                            <span>Plotly</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Statistics</h3>
+                        <div class="skill-tags">
+                            <span>Probability</span>
+                            <span>Measures of Central Tendency</span>
+                            <span>Basic Statistics</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Operating Systems & Cloud Platforms</h3>
+                        <div class="skill-tags">
+                            <span>RHEL Linux</span>
+                            <span>RHCSA</span>
+                            <span>Windows</span>
+                            <span>AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="projects" class="hidden">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Covid-19 Real-Time Global Dashboard</h3>
+                        <p>Developed a real-time COVID-19 dashboard using Power BI, Python, and MySQL to visualize global trends and comparisons.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Power BI Amazon Global Sales Dashboard</h3>
+                        <p>Built a professional Amazon sales dashboard using Power BI to analyze sales performance, profit trends, and customer behavior.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="hidden">
+        <div class="container">
+            <p>Contact with me :</p>
+            <p>Email : <a href="mailto:menariapushpendra164@gmail.com">menariapushpendra164@gmail.com</a></p>
+            <p>Mobile : <a href="tel:9462413318">9462413318</a></p>
+            <div class="social-links" style="margin-top: 1rem;">
+                <a href="https://www.linkedin.com/in/pushpendramenaria/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Pushpendra518" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/menaria_unity/" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p style="margin-top: 1rem;">&copy; 2025 Pushpendra Menaria</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Typewriter Effect for subtitle
+            const subtitleElement = document.getElementById('subtitle');
+            const titles = ["Aspiring Data Scientist", "Data Analyst", "Business Analyst", "Python Developer", "Database Analyst", "Software Developer","PowerBi Developer"];
+            let titleIndex = 0;
+            let charIndex = 0;
+            let currentTitle = '';
+            let isDeleting = false;
+
+            function typeWriter() {
+                const fullTitle = titles[titleIndex];
+
+                if (isDeleting) {
+                    currentTitle = fullTitle.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    currentTitle = fullTitle.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                subtitleElement.textContent = currentTitle;
+
+                let typingSpeed = 100;
+                if (isDeleting) {
+                    typingSpeed /= 2;
+                }
+
+                if (!isDeleting && currentTitle === fullTitle) {
+                    typingSpeed = 500; // Pause at the end
+                    isDeleting = true;
+                } else if (isDeleting && currentTitle === '') {
+                    isDeleting = false;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                    typingSpeed = 500;
+                }
+
+                setTimeout(typeWriter, typingSpeed);
+            }
+            typeWriter();
+
+            // Scroll Animation Logic
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((el) => observer.observe(el));
+
+            // Theme Toggle Logic
+            const themeToggleButton = document.getElementById('theme-toggle-btn');
+            const themeIcon = themeToggleButton.querySelector('i');
+            let isDarkMode = true; // Your current theme is dark
+
+            themeToggleButton.addEventListener('click', () => {
+                if (isDarkMode) {
+                    // Switch to Light Mode
+                    document.documentElement.style.setProperty('--bg-color', '#f4f4f4');
+                    document.documentElement.style.setProperty('--primary-color', '#e0e0e0');
+                    document.documentElement.style.setProperty('--secondary-color', '#d1d1d1');
+                    document.documentElement.style.setProperty('--text-color', '#333333');
+                    document.documentElement.style.setProperty('--heading-color', '#1a1a1a');
+                    document.documentElement.style.setProperty('--header-bg-color', 'rgba(255, 255, 255, 0.7)');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    isDarkMode = false;
+                } else {
+                    // Switch back to Dark Mode
+                    document.documentElement.style.setProperty('--bg-color', '#121212');
+                    document.documentElement.style.setProperty('--primary-color', '#1E1E1E');
+                    document.documentElement.style.setProperty('--secondary-color', '#2a2a2a');
+                    document.documentElement.style.setProperty('--text-color', '#E0E0E0');
+                    document.documentElement.style.setProperty('--heading-color', '#FFFFFF');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    isDarkMode = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
